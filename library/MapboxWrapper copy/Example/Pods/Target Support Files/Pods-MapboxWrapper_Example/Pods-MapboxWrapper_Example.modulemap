@@ -1,6 +1,0 @@
-framework module Pods_MapboxWrapper_Example {
-  umbrella header "Pods-MapboxWrapper_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
