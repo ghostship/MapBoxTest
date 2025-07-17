@@ -9,9 +9,7 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/composeApp.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '16.0'
-    spec.dependency 'MapboxCommon'
-    spec.dependency 'MapboxCoreMaps'
-    spec.dependency 'MapboxMaps', '11.13.3'
+    spec.dependency 'MapboxWrapper', '0.1.0'
                 
     if !Dir.exist?('build/cocoapods/framework/composeApp.framework') || Dir.empty?('build/cocoapods/framework/composeApp.framework')
         raise "

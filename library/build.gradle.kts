@@ -4,13 +4,25 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinCocoapods)
+    id("maven-publish")
+}
+
+group = "com.inspiringapps.libs"
+version = "1.1"
+
+publishing {
+    repositories {
+        maven {
+            name = "mavenLocal"
+        }
+    }
 }
 
 kotlin {
     androidLibrary {
         namespace = "com.inspiringapps.mapboxtest.library"
-        compileSdk = 36
-        minSdk = 30
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
 
         withHostTestBuilder {}
 
@@ -29,22 +41,29 @@ kotlin {
 
         framework {
             baseName = "composeApp"
-            compilerOptions.optIn.add("-Xbinary=bundleId=com.compose.cocoapod_sample")
-            isStatic = true
+//            isStatic = true
+//            transitiveExport = true
         }
 
-        pod("MapboxMaps") {
-            version = "11.13.3"
+        pod("MapboxWrapper") {
+            version = "0.1.0"
+            source = path(project.file("./MapboxWrapper"))
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
-
-        pod("MapboxCoreMaps") {
-            extraOpts += listOf("-compiler-option", "-fmodules")
-        }
-
-        pod("MapboxCommon") {
-            extraOpts += listOf("-compiler-option", "-fmodules")
-        }
+//
+//
+//        pod("MapboxMaps") {
+//            version = "11.13.3"
+//            extraOpts += listOf("-compiler-option", "-fmodules")
+//        }
+//
+//        pod("MapboxCoreMaps") {
+//            extraOpts += listOf("-compiler-option", "-fmodules")
+//        }
+//
+//        pod("MapboxCommon") {
+//            extraOpts += listOf("-compiler-option", "-fmodules")
+//        }
     }
 
     // For iOS targets, this is also where you should
@@ -54,24 +73,24 @@ kotlin {
     // A step-by-step guide on how to include this library in an XCode
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
-    val xcfName = "libraryKit"
+//    val xcfName = "libraryKit"
 
     iosX64 {
-        binaries.framework {
-            baseName = xcfName
-        }
+//        binaries.framework {
+//            baseName = xcfName
+//        }
     }
 
     iosArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
+//        binaries.framework {
+//            baseName = xcfName
+//        }
     }
 
     iosSimulatorArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
+//        binaries.framework {
+//            baseName = xcfName
+//        }
     }
 
     sourceSets {

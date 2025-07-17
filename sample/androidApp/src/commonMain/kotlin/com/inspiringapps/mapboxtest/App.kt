@@ -27,7 +27,7 @@ fun App() {
         ) {
             Text("Hello, World!")
             MapboxMapView(
-                apiKey = Constants.MapboxToken,
+                accessToken = Constants.MapboxToken,
                 modifier = Modifier
                     .background(Color.Black)
                     .fillMaxWidth()

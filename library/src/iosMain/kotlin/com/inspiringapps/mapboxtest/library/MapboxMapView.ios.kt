@@ -1,24 +1,26 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.inspiringapps.mapboxtest.library
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-//import androidx.compose.ui.viewinterop.UIKitView
-//import cocoapods.MapboxCommon.MBXMapboxOptions
-//import cocoapods.MapboxMaps.MapView
+import androidx.compose.ui.viewinterop.UIKitView
+import cocoapods.MapboxWrapper.MapboxMapViewWrapper
 import kotlinx.cinterop.ExperimentalForeignApi
-//import kotlinx.cinterop.readValue
-//import platform.CoreGraphics.CGRectZero
+import platform.CoreGraphics.CGRectMake
 
-@OptIn(ExperimentalForeignApi::class)
+val wrapper = MapboxMapViewWrapper()
+
 @Composable
 actual fun MapboxMapView(accessToken: String, modifier: Modifier) {
-//    MBXMapboxOptions.setAccessTokenForToken(Constants.MapboxToken)
-//    MapView
-//    UIKitView(
-//        factory = {
-//            MapView(frame = CGRectZero.readValue())
-//        },
-//        modifier = modifier,
-//        update = { mapView -> }
-//    )
+    UIKitView(
+        factory = {
+            wrapper.createMapViewWithBounds(
+                bounds = CGRectMake(0.0, 0.0, 0.0, 0.0),
+                token = accessToken
+            )
+        },
+        modifier = modifier,
+        update = { mapView -> }
+    )
 }
