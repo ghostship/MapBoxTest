@@ -1,0 +1,6 @@
+framework module Pods_MapboxWrapper_Tests {
+  umbrella header "Pods-MapboxWrapper_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

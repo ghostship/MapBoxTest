@@ -1,0 +1,6 @@
+framework module MapboxWrapper {
+  umbrella header "MapboxWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}

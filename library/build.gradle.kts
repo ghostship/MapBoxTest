@@ -37,7 +37,7 @@ kotlin {
         homepage = "MapboxMapView Library"
         summary = "Crossplatform MapBox Map View Library"
         version = "1.0"
-        ios.deploymentTarget = "16.0"
+        ios.deploymentTarget = "16.0"g
 
         framework {
             baseName = "composeApp"
