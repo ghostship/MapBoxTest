@@ -1,0 +1,37 @@
+PODS:
+  - MapboxCommon (24.13.3):
+    - Turf (= 4.0.0)
+  - MapboxCoreMaps (11.13.3):
+    - MapboxCommon (= 24.13.3)
+  - MapboxMaps (11.13.3):
+    - MapboxCommon (= 24.13.3)
+    - MapboxCoreMaps (= 11.13.3)
+    - Turf (= 4.0.0)
+  - MapboxWrapper (0.1.0):
+    - MapboxMaps (~> 11.13.3)
+  - Turf (4.0.0)
+
+DEPENDENCIES:
+  - MapboxWrapper (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxMaps
+    - Turf
+
+EXTERNAL SOURCES:
+  MapboxWrapper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MapboxCommon: 2bcc5f4477943750ecd5ab3a46e9375761deb4df
+  MapboxCoreMaps: 61c6137cf359898c7d4e20cd1cede6c8e814b348
+  MapboxMaps: 597037989a759d27d7d88240822457351bce2197
+  MapboxWrapper: 9ab11e18106db40f05ca8edb9a82bc76151d02b5
+  Turf: c9eb11a65d96af58cac523460fd40fec5061b081
+
+PODFILE CHECKSUM: 416c41f0b867de68d74818c91fac328893430acb
+
+COCOAPODS: 1.16.2

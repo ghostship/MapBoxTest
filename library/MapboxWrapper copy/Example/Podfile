@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '16.0'
+
+target 'MapboxWrapper_Example' do
+  pod 'MapboxWrapper', :path => '../'
+
+  target 'MapboxWrapper_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
